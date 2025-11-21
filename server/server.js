@@ -21,10 +21,12 @@ app.get('/', (req, res) => res.json({ message: 'API funcionando com MongoDB e Pr
 // CREATE
 app.post('/filmes', async (req, res) => {
   const { titulo, status, resenha, nota, icone } = req.body;
+
   const novoFilme = await prisma.filme.create({
     data: { titulo, status, resenha, nota , icone},
   });
   res.status(201).json(novoFilme);
+  console.log("Backend: " + novoFilme);
 });
 
 // READ - todos
@@ -45,6 +47,7 @@ app.get('/filmes/:id', async (req, res) => {
 app.put('/filmes/:id', async (req, res) => {
   const { id } = req.params;
   const { titulo, status, resenha, nota ,icone } = req.body;
+
   try {
     const atualizado = await prisma.filme.update({
       where: { id },

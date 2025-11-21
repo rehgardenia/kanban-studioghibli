@@ -3,7 +3,7 @@ import "../app.css";
 
 export default function ModalFilme({ fechar, salvar, filmeEditando }) {
   const [titulo, setTitulo] = useState("");
-  const [nota, setNota] = useState("");
+  const [nota, setNota] = useState();
   const [resenha, setResenha] = useState("");
   const [icone, setIcone] = useState(null);
   const [status, setStatus] = useState("pendente");
